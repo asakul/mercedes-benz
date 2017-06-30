@@ -6,6 +6,8 @@ import xgboost as xgb
 import os
 import matplotlib.pyplot as plt
 
+from sklearn.model_selection import train_test_split
+
 DATA_DIR = 'data'
 TRAIN_FILE_PATH = os.path.join(DATA_DIR, 'train.csv')
 TEST_FILE_PATH = os.path.join(DATA_DIR, 'test.csv')
@@ -16,10 +18,13 @@ raw_test_data = pd.read_csv(TEST_FILE_PATH)
 
 # print(raw_train_data.head(5))
 
+SEED = 1
 
 train_data = raw_train_data.copy()
 test_data = raw_test_data.copy()
 
+# adopt the line below for splitting the dataset into train & val
+# x_train, x_valid = train_test_split(train_data, test_size=0.2, random_state=SEED)
 
 # a bloc of code for prediction. Need to add feature engineering above and remove 'Xn' from .drop()
 
